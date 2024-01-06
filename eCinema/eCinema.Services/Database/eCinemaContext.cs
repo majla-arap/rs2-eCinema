@@ -32,6 +32,7 @@ namespace eCinema.Services.Database
         public virtual DbSet<Uloga> Ulogas { get; set; } = null!;
         public virtual DbSet<Zanr> Zanrs { get; set; } = null!;
 
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -197,6 +198,7 @@ namespace eCinema.Services.Database
             });
 
             OnModelCreatingPartial(modelBuilder);
+            base.OnModelCreating(modelBuilder);
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
