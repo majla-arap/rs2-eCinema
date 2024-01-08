@@ -21,12 +21,13 @@ namespace eCinema.Services.Mapping
             CreateMap<Database.Zanr, Model.Zanr>();
             CreateMap<Database.Glumac, Model.Glumac>();
             CreateMap<Database.Film, Model.Film>();
-            //CreateMap<Database.Termin, Model.Termin>();
-            //CreateMap<Database.FilmGlumac, Model.FilmGlumac>();
-            //CreateMap<Database.Kartum, Model.Karta>();
-            //CreateMap<Database.Kupovina, Model.Kupovina>();
+            CreateMap<Database.Termin, Model.Termin>();
+            CreateMap<Database.FilmGlumac, Model.FilmGlumac>();
+            CreateMap<Database.Kartum, Model.Karta>();
+            CreateMap<Database.Kupovina, Model.Kupovina>();
             CreateMap<Database.Korisnik, Model.Korisnik>();
             CreateMap<Database.KorisnikUloge, Model.KorisnikUloge>();
+            CreateMap<Database.FilmZanr,Model.FilmZanr>();
 
 
 
@@ -39,13 +40,14 @@ namespace eCinema.Services.Mapping
             CreateMap<ZanrInsertRequest, Database.Zanr>();
             CreateMap<GlumacInsertRequest, Database.Glumac>();
             CreateMap<FilmInsertRequest, Database.Film>();
-            //CreateMap<TerminInsertRequest, Database.Termin>();
-            //CreateMap<FilmGlumacInsertRequest, Database.FilmGlumac>();
-            //CreateMap<KartaInsertRequest, Database.Kartum>();
-            //CreateMap<KupovinaInsertRequest, Database.Kupovina>();
+            CreateMap<TerminInsertRequest, Database.Termin>();
+            CreateMap<FilmGlumacInsertRequest, Database.FilmGlumac>();
+            CreateMap<KartaInsertRequest, Database.Kartum>();
+            CreateMap<KupovinaInsertRequest, Database.Kupovina>();
             CreateMap<KorisnikInsertRequest, Database.Korisnik>();
             CreateMap<KorisnikUpdateRequest, Database.Korisnik>();
             CreateMap<KorisnikUlogeInsertRequest, Database.KorisnikUloge>();
+            CreateMap<FilmZanrInsertRequest,Database.FilmZanr>();
 
         }
     }

@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace eCinema.Services.Database
+namespace eCinema.Model
 {
-    public partial class Kupovina
+    public class Kupovina
     {
         public int KupovinaId { get; set; }
         public int Kolicina { get; set; }

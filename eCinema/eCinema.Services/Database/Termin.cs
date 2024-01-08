@@ -4,7 +4,8 @@ using System.Collections.Generic;
 namespace eCinema.Services.Database
 {
     public partial class Termin
-    {
+    {       
+
         public Termin()
         {
             Karta = new HashSet<Kartum>();
@@ -16,7 +17,8 @@ namespace eCinema.Services.Database
         public bool? Premijera { get; set; }
         public bool? Predpremijera { get; set; }
         public int? CijenaKarte { get; set; }
-        public DateTime? DatumOdrzavanja { get; set; }
+        public DateTime DatumOdrzavanja { get; set; }
+        public string? VrijemeOdrzavanja { get; set; }
 
         public virtual Dvorana? Dvorana { get; set; }
         public virtual Film? Film { get; set; }

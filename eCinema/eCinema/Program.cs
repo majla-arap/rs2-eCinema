@@ -54,6 +54,11 @@ builder.Services.AddTransient<IZanrService, ZanrService>();
 builder.Services.AddTransient<ICinemaService, CinemaService>();
 builder.Services.AddTransient<IDvoranaService, DvoranaService>();
 builder.Services.AddTransient<IFilmService, FilmService>();
+builder.Services.AddTransient<IFilmZanrService, FilmZanrService>();
+builder.Services.AddTransient<IFilmGlumacService, FilmGlumacService>();
+builder.Services.AddTransient<ITerminService, TerminService>();
+builder.Services.AddTransient<IKartaService, KartaService>();
+builder.Services.AddTransient<IKupovinaService, KupovinaService>();
 
 builder.Services.AddAutoMapper(typeof(IAuthService));
 builder.Services.AddAuthentication("BasicAuthentication")

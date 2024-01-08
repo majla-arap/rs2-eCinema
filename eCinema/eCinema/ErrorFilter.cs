@@ -14,6 +14,11 @@ namespace eCinema
                 context.ModelState.AddModelError(((KorisnikException)context.Exception).Title, context.Exception.Message);
                 context.HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
             }
+            else if (context.Exception is DvoranaException)
+            {
+                context.ModelState.AddModelError(((DvoranaException)context.Exception).Title, context.Exception.Message);
+                context.HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+            }
             else
             {
                 context.ModelState.AddModelError("Server", "Greska na serveru");
