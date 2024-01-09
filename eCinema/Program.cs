@@ -60,6 +60,8 @@ builder.Services.AddTransient<ITerminService, TerminService>();
 builder.Services.AddTransient<IKartaService, KartaService>();
 builder.Services.AddTransient<IKupovinaService, KupovinaService>();
 
+builder.Services.AddTransient<StripeService>();
+
 builder.Services.AddAutoMapper(typeof(IAuthService));
 builder.Services.AddAuthentication("BasicAuthentication")
     .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);

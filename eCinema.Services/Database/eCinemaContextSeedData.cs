@@ -6327,7 +6327,7 @@ namespace eCinema.Services.Database
                    Kolicina = 2,
                    Cijena = 40,
                    DatumKupovine = DateTime.Now,
-                   PaymentIntentId = "pi_3NwMiYEDYm8POibP1HZgAANw_secret_L1f7hpTvlCWjJJXmeJaTwZO06",
+                   PaymentIntentId = "pi_3OWINVKz7Kvo4INB0vxMg7nh_secret_OCpHVXa9D6FpelaUByuyHJXEH",
                    KorisnikId = 2,
                    TerminId = 1,
                    Placena = true
@@ -6338,7 +6338,7 @@ namespace eCinema.Services.Database
                    Kolicina = 3,
                    Cijena = 30,
                    DatumKupovine = DateTime.Now,
-                   PaymentIntentId = "pi_3NwMiYEDYm8POibP1HZgAANw_secret_L1f7hpTvlCWjJJXmeJaTwZO06",
+                   PaymentIntentId = "pi_3OWINVKz7Kvo4INB0vxMg7nh_secret_OCpHVXa9D6FpelaUByuyHJXEH",
                    KorisnikId = 2,
                    TerminId = 6,
                    Placena = true
@@ -6349,7 +6349,7 @@ namespace eCinema.Services.Database
                    Kolicina = 1,
                    Cijena = 10,
                    DatumKupovine = DateTime.Now,
-                   PaymentIntentId = "pi_3NwMiYEDYm8POibP1HZgAANw_secret_L1f7hpTvlCWjJJXmeJaTwZO06",
+                   PaymentIntentId = "pi_3OWINVKz7Kvo4INB0vxMg7nh_secret_OCpHVXa9D6FpelaUByuyHJXEH",
                    KorisnikId = 2,
                    TerminId = 5,
                    Placena = true
@@ -6360,7 +6360,7 @@ namespace eCinema.Services.Database
                    Kolicina = 2,
                    Cijena = 20,
                    DatumKupovine = DateTime.Now,
-                   PaymentIntentId = "pi_3NwMiYEDYm8POibP1HZgAANw_secret_L1f7hpTvlCWjJJXmeJaTwZO06",
+                   PaymentIntentId = "pi_3OWINVKz7Kvo4INB0vxMg7nh_secret_OCpHVXa9D6FpelaUByuyHJXEH",
                    KorisnikId = 2,
                    TerminId = 2,
                    Placena = true

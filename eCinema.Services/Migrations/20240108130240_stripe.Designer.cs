@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eCinema.Services.Database;
 
@@ -11,9 +12,10 @@ using eCinema.Services.Database;
 namespace eCinema.Services.Migrations
 {
     [DbContext(typeof(eCinemaContext))]
-    partial class eCinemaContextModelSnapshot : ModelSnapshot
+    [Migration("20240108130240_stripe")]
+    partial class stripe
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -186,7 +188,7 @@ namespace eCinema.Services.Migrations
                             FilmId = 1,
                             Godina = "2023",
                             Naziv = "Spiderman",
-                            PocetakPrikazivanja = new DateTime(2024, 1, 6, 15, 41, 55, 542, DateTimeKind.Local).AddTicks(6235),
+                            PocetakPrikazivanja = new DateTime(2024, 1, 8, 14, 2, 39, 479, DateTimeKind.Local).AddTicks(4003),
                             Redatelj = "Stan Lee",
                             Sadrzaj = "Peter Parker, a shy and awkward high school student, is often bullied by people, including his best friend. His life changes when he is bitten by a genetically altered spider and gains superpowers.",
                             VrijemeTrajanje = 90
@@ -196,7 +198,7 @@ namespace eCinema.Services.Migrations
                             FilmId = 2,
                             Godina = "2023",
                             Naziv = "Ironman",
-                            PocetakPrikazivanja = new DateTime(2024, 1, 6, 15, 41, 55, 542, DateTimeKind.Local).AddTicks(6239),
+                            PocetakPrikazivanja = new DateTime(2024, 1, 8, 14, 2, 39, 479, DateTimeKind.Local).AddTicks(4015),
                             Redatelj = "Stan Lee",
                             Sadrzaj = "When Tony Stark, an industrialist, is captured, he constructs a high-tech armoured suit to escape. Once he manages to escape, he decides to use his suit to fight against evil forces to save the world.",
                             VrijemeTrajanje = 90
@@ -206,7 +208,7 @@ namespace eCinema.Services.Migrations
                             FilmId = 3,
                             Godina = "2023",
                             Naziv = "Black widow",
-                            PocetakPrikazivanja = new DateTime(2024, 1, 6, 15, 41, 55, 542, DateTimeKind.Local).AddTicks(6241),
+                            PocetakPrikazivanja = new DateTime(2024, 1, 8, 14, 2, 39, 479, DateTimeKind.Local).AddTicks(4019),
                             Redatelj = "Stan Lee",
                             Sadrzaj = "Natasha Romanoff, a member of the Avengers and a former KGB spy, is forced to confront her dark past when a conspiracy involving her old handler arises."
                         },
@@ -215,7 +217,7 @@ namespace eCinema.Services.Migrations
                             FilmId = 4,
                             Godina = "2023",
                             Naziv = "Thor",
-                            PocetakPrikazivanja = new DateTime(2024, 1, 6, 15, 41, 55, 542, DateTimeKind.Local).AddTicks(6244),
+                            PocetakPrikazivanja = new DateTime(2024, 1, 8, 14, 2, 39, 479, DateTimeKind.Local).AddTicks(4024),
                             Redatelj = "Stan Lee",
                             Sadrzaj = "Thor is exiled by his father, Odin, the King of Asgard, to the Earth to live among mortals. When he lands on Earth, his trusted weapon Mjolnir is discovered and captured by S.H.I.E.L.D.",
                             VrijemeTrajanje = 90
@@ -225,7 +227,7 @@ namespace eCinema.Services.Migrations
                             FilmId = 5,
                             Godina = "2023",
                             Naziv = "Hulk",
-                            PocetakPrikazivanja = new DateTime(2024, 1, 6, 15, 41, 55, 542, DateTimeKind.Local).AddTicks(6246),
+                            PocetakPrikazivanja = new DateTime(2024, 1, 8, 14, 2, 39, 479, DateTimeKind.Local).AddTicks(4027),
                             Redatelj = "Stan Lee",
                             Sadrzaj = "After being exposed to dangerous levels of radiation, a scientist, Bruce Banner, transforms into an angry green monster at the slightest hint of conflict.",
                             VrijemeTrajanje = 90
@@ -235,7 +237,7 @@ namespace eCinema.Services.Migrations
                             FilmId = 6,
                             Godina = "2023",
                             Naziv = "Ant-man",
-                            PocetakPrikazivanja = new DateTime(2024, 1, 6, 15, 41, 55, 542, DateTimeKind.Local).AddTicks(6249),
+                            PocetakPrikazivanja = new DateTime(2024, 1, 8, 14, 2, 39, 479, DateTimeKind.Local).AddTicks(4032),
                             Redatelj = "Stan Lee",
                             Sadrzaj = "Scott, a master thief, gains the ability to shrink in scale with the help of a futuristic suit. Now he must rise to the occasion of his superhero status and protect his secret from unsavoury elements.",
                             VrijemeTrajanje = 90
@@ -6477,10 +6479,10 @@ namespace eCinema.Services.Migrations
                         {
                             KupovinaId = 1,
                             Cijena = 40,
-                            DatumKupovine = new DateTime(2024, 1, 6, 15, 41, 55, 542, DateTimeKind.Local).AddTicks(7278),
+                            DatumKupovine = new DateTime(2024, 1, 8, 14, 2, 39, 479, DateTimeKind.Local).AddTicks(5857),
                             Kolicina = 2,
                             KorisnikId = 2,
-                            PaymentIntentId = "pi_3NwMiYEDYm8POibP1HZgAANw_secret_L1f7hpTvlCWjJJXmeJaTwZO06",
+                            PaymentIntentId = "pi_3OWINVKz7Kvo4INB0vxMg7nh_secret_OCpHVXa9D6FpelaUByuyHJXEH",
                             Placena = true,
                             TerminId = 1
                         },
@@ -6488,10 +6490,10 @@ namespace eCinema.Services.Migrations
                         {
                             KupovinaId = 2,
                             Cijena = 30,
-                            DatumKupovine = new DateTime(2024, 1, 6, 15, 41, 55, 542, DateTimeKind.Local).AddTicks(7288),
+                            DatumKupovine = new DateTime(2024, 1, 8, 14, 2, 39, 479, DateTimeKind.Local).AddTicks(6017),
                             Kolicina = 3,
                             KorisnikId = 2,
-                            PaymentIntentId = "pi_3NwMiYEDYm8POibP1HZgAANw_secret_L1f7hpTvlCWjJJXmeJaTwZO06",
+                            PaymentIntentId = "pi_3OWINVKz7Kvo4INB0vxMg7nh_secret_OCpHVXa9D6FpelaUByuyHJXEH",
                             Placena = true,
                             TerminId = 6
                         },
@@ -6499,10 +6501,10 @@ namespace eCinema.Services.Migrations
                         {
                             KupovinaId = 3,
                             Cijena = 10,
-                            DatumKupovine = new DateTime(2024, 1, 6, 15, 41, 55, 542, DateTimeKind.Local).AddTicks(7290),
+                            DatumKupovine = new DateTime(2024, 1, 8, 14, 2, 39, 479, DateTimeKind.Local).AddTicks(6021),
                             Kolicina = 1,
                             KorisnikId = 2,
-                            PaymentIntentId = "pi_3NwMiYEDYm8POibP1HZgAANw_secret_L1f7hpTvlCWjJJXmeJaTwZO06",
+                            PaymentIntentId = "pi_3OWINVKz7Kvo4INB0vxMg7nh_secret_OCpHVXa9D6FpelaUByuyHJXEH",
                             Placena = true,
                             TerminId = 5
                         },
@@ -6510,10 +6512,10 @@ namespace eCinema.Services.Migrations
                         {
                             KupovinaId = 4,
                             Cijena = 20,
-                            DatumKupovine = new DateTime(2024, 1, 6, 15, 41, 55, 542, DateTimeKind.Local).AddTicks(7293),
+                            DatumKupovine = new DateTime(2024, 1, 8, 14, 2, 39, 479, DateTimeKind.Local).AddTicks(6024),
                             Kolicina = 2,
                             KorisnikId = 2,
-                            PaymentIntentId = "pi_3NwMiYEDYm8POibP1HZgAANw_secret_L1f7hpTvlCWjJJXmeJaTwZO06",
+                            PaymentIntentId = "pi_3OWINVKz7Kvo4INB0vxMg7nh_secret_OCpHVXa9D6FpelaUByuyHJXEH",
                             Placena = true,
                             TerminId = 2
                         });
@@ -6560,7 +6562,7 @@ namespace eCinema.Services.Migrations
                         new
                         {
                             ObavijestId = 1,
-                            DatumKreiranja = new DateTime(2024, 1, 6, 15, 41, 55, 542, DateTimeKind.Local).AddTicks(6121),
+                            DatumKreiranja = new DateTime(2024, 1, 8, 14, 2, 39, 479, DateTimeKind.Local).AddTicks(3689),
                             KorisnikId = 1,
                             Naslov = "Početak projekcije filma Spiderman",
                             ObavijestKategorijaId = 1,
@@ -6570,7 +6572,7 @@ namespace eCinema.Services.Migrations
                         new
                         {
                             ObavijestId = 2,
-                            DatumKreiranja = new DateTime(2024, 1, 6, 15, 41, 55, 542, DateTimeKind.Local).AddTicks(6162),
+                            DatumKreiranja = new DateTime(2024, 1, 8, 14, 2, 39, 479, DateTimeKind.Local).AddTicks(3744),
                             KorisnikId = 1,
                             Naslov = "Dan nezavisnosti",
                             ObavijestKategorijaId = 2,
@@ -6649,7 +6651,7 @@ namespace eCinema.Services.Migrations
                         {
                             TerminId = 1,
                             CijenaKarte = 20,
-                            DatumOdrzavanja = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Local),
+                            DatumOdrzavanja = new DateTime(2024, 1, 8, 0, 0, 0, 0, DateTimeKind.Local),
                             DvoranaId = 1,
                             FilmId = 1,
                             Predpremijera = true,
@@ -6660,7 +6662,7 @@ namespace eCinema.Services.Migrations
                         {
                             TerminId = 2,
                             CijenaKarte = 10,
-                            DatumOdrzavanja = new DateTime(2024, 1, 8, 0, 0, 0, 0, DateTimeKind.Local),
+                            DatumOdrzavanja = new DateTime(2024, 1, 10, 0, 0, 0, 0, DateTimeKind.Local),
                             DvoranaId = 2,
                             FilmId = 2,
                             Predpremijera = true,
@@ -6671,7 +6673,7 @@ namespace eCinema.Services.Migrations
                         {
                             TerminId = 3,
                             CijenaKarte = 20,
-                            DatumOdrzavanja = new DateTime(2024, 1, 9, 0, 0, 0, 0, DateTimeKind.Local),
+                            DatumOdrzavanja = new DateTime(2024, 1, 11, 0, 0, 0, 0, DateTimeKind.Local),
                             DvoranaId = 2,
                             FilmId = 3,
                             Predpremijera = true,
@@ -6682,7 +6684,7 @@ namespace eCinema.Services.Migrations
                         {
                             TerminId = 4,
                             CijenaKarte = 20,
-                            DatumOdrzavanja = new DateTime(2024, 1, 8, 0, 0, 0, 0, DateTimeKind.Local),
+                            DatumOdrzavanja = new DateTime(2024, 1, 10, 0, 0, 0, 0, DateTimeKind.Local),
                             DvoranaId = 2,
                             FilmId = 4,
                             Predpremijera = true,
@@ -6693,7 +6695,7 @@ namespace eCinema.Services.Migrations
                         {
                             TerminId = 5,
                             CijenaKarte = 10,
-                            DatumOdrzavanja = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Local),
+                            DatumOdrzavanja = new DateTime(2024, 1, 8, 0, 0, 0, 0, DateTimeKind.Local),
                             DvoranaId = 2,
                             FilmId = 5,
                             Predpremijera = true,
@@ -6704,7 +6706,7 @@ namespace eCinema.Services.Migrations
                         {
                             TerminId = 6,
                             CijenaKarte = 10,
-                            DatumOdrzavanja = new DateTime(2024, 1, 9, 0, 0, 0, 0, DateTimeKind.Local),
+                            DatumOdrzavanja = new DateTime(2024, 1, 11, 0, 0, 0, 0, DateTimeKind.Local),
                             DvoranaId = 2,
                             FilmId = 6,
                             Predpremijera = true,

@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿﻿using AutoMapper;
 using eCinema.Model.Requests;
 using eCinema.Model.SearchObjects;
 using eCinema.Services.BaseService;
@@ -15,12 +15,12 @@ namespace eCinema.Services
     public class KupovinaService : BaseCRUDService<Model.Kupovina, Database.Kupovina, KupovinaSearchObject, KupovinaInsertRequest, KupovinaInsertRequest>, IKupovinaService
     {
         IKartaService _kartaService { get; set; }        
-     
+        public StripeService _stripeService { get; set; }
 
-        public KupovinaService(eCinemaContext context, IMapper mapper, IKartaService kartaService) : base(context, mapper)
+        public KupovinaService(eCinemaContext context, IMapper mapper, IKartaService kartaService, StripeService stripeService) : base(context, mapper)
         {
             _kartaService = kartaService;
-            
+            _stripeService = stripeService;
         }
 
         public override IQueryable<eCinema.Services.Database.Kupovina> AddInclude(IQueryable<eCinema.Services.Database.Kupovina> query, KupovinaSearchObject search = null)
@@ -40,7 +40,27 @@ namespace eCinema.Services
             return filteredQuery;
         }
 
-       
+        public override Model.Kupovina Insert(KupovinaInsertRequest request)
+        {
+            var termin = _context.Termins.First(x => x.TerminId == request.TerminId);
+            if (termin == null)
+                throw new Exception("Termin nije pronađen");
+
+            Kupovina kupovina = new Kupovina();
+            kupovina.KorisnikId = (int)request.KorisnikId;
+            kupovina.DatumKupovine = DateTime.Now;
+            kupovina.Kolicina = request.Karte.Count();
+            kupovina.Cijena = request.Cijena;
+            kupovina.TerminId = request.TerminId;
+            kupovina.Placena = false;
+            _context.Add(kupovina);
+            _context.SaveChanges();
+
+            var paymentId =  _stripeService.KreirajKupoivnu(kupovina.Cijena, $"Kupovina za ({kupovina.DatumKupovine})");
+            kupovina.PaymentIntentId = paymentId; 
+            _context.SaveChanges();
+            return _mapper.Map<Model.Kupovina>(kupovina);
+        }
 
         public IEnumerable<Model.Kupovina> GetByKorisnikId(int id)
         {
@@ -65,9 +85,7 @@ namespace eCinema.Services
                 if (kupovina != null)
                     kupovina.Placena = true;
             }
-            _context.SaveChanges();
-
-          
+            _context.SaveChanges();           
 
             return _mapper.Map<Model.Kupovina>(kupovina);
         }
