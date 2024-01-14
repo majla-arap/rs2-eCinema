@@ -1,6 +1,16 @@
+import 'package:ecinema_desktop/models/models.dart';
 import 'package:ecinema_desktop/providers/authProvider.dart';
+import 'package:ecinema_desktop/providers/cinemaProvider.dart';
+import 'package:ecinema_desktop/providers/dvoranaProvider.dart';
+import 'package:ecinema_desktop/providers/filmGlumacProvider.dart';
+import 'package:ecinema_desktop/providers/filmProvider.dart';
 import 'package:ecinema_desktop/providers/glumciProvider.dart';
+import 'package:ecinema_desktop/providers/kartaProvider.dart';
+import 'package:ecinema_desktop/providers/kategorijaObavijestProvider.dart';
 import 'package:ecinema_desktop/providers/korisnikProvider.dart';
+import 'package:ecinema_desktop/providers/obavijestProvider.dart';
+import 'package:ecinema_desktop/providers/terminiProvider.dart';
+import 'package:ecinema_desktop/providers/zanrProvider.dart';
 import 'package:ecinema_desktop/screens/loginScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -14,6 +24,15 @@ void main() {
         ChangeNotifierProvider(create: (_) => AuthProvider()),
         ChangeNotifierProvider(create: (_) => GlumacProvider()),
         ChangeNotifierProvider(create: (_) => KorisnikProvider()),
+        ChangeNotifierProvider(create: (_) => KategorijaObavijestProvider()),
+        ChangeNotifierProvider(create: (_) => ObavijestProvider()),
+        ChangeNotifierProvider(create: (_) => CinemaProvider()),
+        ChangeNotifierProvider(create: (_) => DvoranaProvider()),
+        ChangeNotifierProvider(create: (_) => TerminProvider()),
+        ChangeNotifierProvider(create: (_) => FilmProvider()),
+        ChangeNotifierProvider(create: (_) => KartaProvider()),
+        ChangeNotifierProvider(create: (_) => ZanrProvider()),
+        ChangeNotifierProvider(create: (_) => FilmGlumacProvider()),
       ],
       child: const MyApp(),
     ),
