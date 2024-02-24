@@ -81,7 +81,7 @@ class _TerminiScreenState extends State<TerminiScreen> {
 
   void loadData() async {
     dynamic request = {
-      'SalaId': widget.dvoranaId,
+      'DvoranaId': widget.dvoranaId,
       'DatumOdrzavanja': _selectedDate?.toIso8601String(),
       'Premijera': filterPremijera ? true : null,
       'Predpremijera': filterPredPrem ? true : null,
@@ -299,7 +299,7 @@ class _TerminiScreenState extends State<TerminiScreen> {
                 columnSpacing: 0,
                 columns: const [
                   DataColumn(label: Text('Film')),
-                  DataColumn(label: Text('Sala')),
+                  DataColumn(label: Text('Dvorana')),
                   DataColumn(label: Text('Datum izvodjenja')),
                   DataColumn(label: Text('Vrijeme odrzavanja')),
                   DataColumn(label: Text('Cijena karte')),

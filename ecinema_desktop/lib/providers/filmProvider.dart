@@ -1,11 +1,13 @@
+import 'dart:convert';
+import 'package:ecinema_desktop/models/zarada.dart';
 import 'package:ecinema_desktop/providers/baseProvider.dart';
 import '../models/models.dart';
 
 class FilmProvider extends BaseProvider<Film> {
-  //static String? _baseUrl;
+  static String? _baseUrl;
   FilmProvider() : super("Film") {
-    // _baseUrl = const String.fromEnvironment("baseUrl",
-    //    defaultValue: "http://localhost:5192/");
+    _baseUrl = const String.fromEnvironment("baseUrl",
+        defaultValue: "http://localhost:5192/");
   }
 
   @override
@@ -13,7 +15,7 @@ class FilmProvider extends BaseProvider<Film> {
     return Film.fromJson(data);
   }
 
-  /* Future<Zarada> getZarada(int id) async {
+  Future<Zarada> getZarada(int id) async {
     var url = "${_baseUrl}Predstava/zaradaReport/$id";
     var uri = Uri.parse(url);
     Map<String, String> headers = createHeaders();
@@ -26,5 +28,5 @@ class FilmProvider extends BaseProvider<Film> {
     } else {
       throw Exception("Exception... handle this gracefully");
     }
-  }*/
+  }
 }

@@ -1,4 +1,4 @@
-import 'package:ecinema_desktop/models/models.dart';
+//import 'package:ecinema_desktop/models/models.dart';
 import 'package:ecinema_desktop/providers/authProvider.dart';
 import 'package:ecinema_desktop/providers/cinemaProvider.dart';
 import 'package:ecinema_desktop/providers/dvoranaProvider.dart';
@@ -11,7 +11,11 @@ import 'package:ecinema_desktop/providers/korisnikProvider.dart';
 import 'package:ecinema_desktop/providers/obavijestProvider.dart';
 import 'package:ecinema_desktop/providers/terminiProvider.dart';
 import 'package:ecinema_desktop/providers/zanrProvider.dart';
+import 'package:ecinema_desktop/screens/dvoranaScreen.dart';
+import 'package:ecinema_desktop/screens/karteScreen.dart';
+import 'package:ecinema_desktop/screens/listaGlumacaScreen.dart';
 import 'package:ecinema_desktop/screens/loginScreen.dart';
+import 'package:ecinema_desktop/screens/terminiScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -46,7 +50,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'eCinema admin',
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
             backgroundColor: Color.fromARGB(255, 41, 39, 39),
@@ -76,12 +80,25 @@ class MyApp extends StatelessWidget {
             seedColor: const Color.fromARGB(255, 154, 83, 219)),
         useMaterial3: true,
       ),
-      initialRoute: '/login',
+      initialRoute: LoginScreen.routeName,
       routes: {
         LoginScreen.routeName: (context) => const LoginScreen(),
         MainNavScreen.routeName: (context) => const MainNavScreen(),
+        DvoranaScreen.routeName: (context) => DvoranaScreen(
+            id: ModalRoute.of(context)!.settings.arguments as int),
+        TerminiScreen.routeName: (context) => TerminiScreen(
+            dvoranaId: ModalRoute.of(context)!.settings.arguments as int),
+        KarteScreen.routeName: (context) => KarteScreen(
+            terminId: ModalRoute.of(context)!.settings.arguments as int),
+        ListaGlumacaScreen.routeName: (context) {
+          final args = ModalRoute.of(context)!.settings.arguments
+              as Map<String, dynamic>;
+          return ListaGlumacaScreen(
+            filmId: args['filmId'] as int,
+            naziv: args['naziv'] as String,
+          );
+        },
       },
-      home: const LoginScreen(),
     );
   }
 }

@@ -29,8 +29,8 @@ class _DvoranaScreenState extends State<DvoranaScreen> {
 
   void loadData() async {
     var data = await _dvoranaProvider!.get({
-      'PozoristeId': widget.id,
-      'Tekst': _searchController.text,
+      'CinemaId': widget.id,
+      'Text': _searchController.text,
     });
     setState(() {
       _dvorane = data;

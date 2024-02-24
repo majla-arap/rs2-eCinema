@@ -14,11 +14,11 @@ namespace eCinema.Controllers
             _service = service;
         }
 
-        //[Authorize]
-        //[HttpGet("zaradaReport/{id}")]
-        //public Model.Zarada ZaradaReport(int id)
-        //{
-        //    return _service.ZaradaReport(id);
-        //}
+        [Authorize]
+        [HttpGet("zaradaReport/{id}")]
+        public Model.Zarada ZaradaReport(int id)
+        {
+            return _service.ZaradaReport(id);
+        }
     }
 }

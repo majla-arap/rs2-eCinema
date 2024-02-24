@@ -186,7 +186,7 @@ class _CinemaScreenState extends State<CinemaScreen> {
                   DataColumn(label: Text('Aktivan')),
                   DataColumn(label: Text('Uredi')),
                   DataColumn(label: Text('Obrisi')),
-                  DataColumn(label: Text('Sale')),
+                  DataColumn(label: Text('Dvorane')),
                 ],
                 rows: _cinema!.isNotEmpty
                     ? _cinema!.map((cinema) {

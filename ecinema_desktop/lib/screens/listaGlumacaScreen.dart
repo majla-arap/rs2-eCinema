@@ -5,11 +5,11 @@ import 'package:provider/provider.dart';
 
 class ListaGlumacaScreen extends StatefulWidget {
   static const routeName = '/lista-glumaca';
-  final int predstavaId;
+  final int filmId;
   final String naziv;
   const ListaGlumacaScreen({
     super.key,
-    required this.predstavaId,
+    required this.filmId,
     required this.naziv,
   });
 
@@ -21,19 +21,19 @@ class _GlumciScreenState extends State<ListaGlumacaScreen> {
   FilmGlumacProvider? _provider;
   List<FilmGlumac>? _glumci;
 
-  late TextEditingController predstavaController;
+  late TextEditingController filmController;
 
   @override
   void initState() {
     super.initState();
     _provider = context.read<FilmGlumacProvider>();
-    predstavaController = TextEditingController(text: widget.naziv);
+    filmController = TextEditingController(text: widget.naziv);
     loadData();
   }
 
   void loadData() async {
     dynamic request = {
-      'PredstavaId': widget.predstavaId,
+      'FilmId': widget.filmId,
     };
 
     var data = await _provider!.get(request);
@@ -47,7 +47,7 @@ class _GlumciScreenState extends State<ListaGlumacaScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           backgroundColor: Colors.red,
-          content: Text('Predstava mora imati najmanje jednog glumca!'),
+          content: Text('Film mora imati najmanje jednog glumca!'),
         ),
       );
       return;
@@ -119,9 +119,9 @@ class _GlumciScreenState extends State<ListaGlumacaScreen> {
               Expanded(
                 child: TextFormField(
                   enabled: false,
-                  controller: predstavaController,
+                  controller: filmController,
                   decoration: const InputDecoration(
-                    labelText: 'Predstava',
+                    labelText: 'Film',
                   ),
                 ),
               ),

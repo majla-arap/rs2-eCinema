@@ -1,9 +1,11 @@
 import 'package:ecinema_desktop/models/film.dart';
+import 'package:ecinema_desktop/models/models.dart';
 import 'package:ecinema_desktop/providers/filmProvider.dart';
 import 'package:ecinema_desktop/screens/listaGlumacaScreen.dart';
 import 'package:ecinema_desktop/widgets/film/addFilmGlumacModal.dart';
 import 'package:ecinema_desktop/widgets/film/addFilmModal.dart';
 import 'package:ecinema_desktop/widgets/film/editFilmModal.dart';
+import 'package:ecinema_desktop/widgets/film_zarada.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -199,12 +201,11 @@ class _FilmScreenState extends State<FilmScreen> {
                 columns: const [
                   DataColumn(label: Text('Naziv')),
                   DataColumn(label: Text('Vrijeme trajanja')),
-                  DataColumn(label: Text('Vrsta filma')),
                   DataColumn(label: Text('Uredi')),
                   DataColumn(label: Text('Obriši')),
                   DataColumn(label: Text('Dodaj glumca')),
                   DataColumn(label: Text('Prikaz glumaca')),
-                  // DataColumn(label: Text('Izvjestaj')),
+                  DataColumn(label: Text('Izvjestaj')),
                 ],
                 rows: _film!.isNotEmpty
                     ? _film!.map((film) {
@@ -262,7 +263,7 @@ class _FilmScreenState extends State<FilmScreen> {
                               },
                             ),
                           ),
-                          /*  DataCell(
+                          DataCell(
                             IconButton(
                               icon: Icon(Icons.addchart,
                                   color: Theme.of(context).primaryColor),
@@ -280,7 +281,7 @@ class _FilmScreenState extends State<FilmScreen> {
                                 );
                               },
                             ),
-                          ),*/
+                          ),
                         ]);
                       }).toList()
                     : [
@@ -293,7 +294,7 @@ class _FilmScreenState extends State<FilmScreen> {
                           DataCell(Text('')),
                           DataCell(Text('')),
                           DataCell(Text('')),
-                          // DataCell(Text('')),
+                          DataCell(Text('')),
                         ])
                       ],
               ),

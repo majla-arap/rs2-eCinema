@@ -11,6 +11,6 @@ namespace eCinema.Services
 {
     public interface IFilmService : IBaseCRUDService<Model.Film, BaseSearchObject, FilmInsertRequest, FilmInsertRequest>
     {
-       // Model.Zarada ZaradaReport(int id);
+        Model.Zarada ZaradaReport(int id);
     }
 }
