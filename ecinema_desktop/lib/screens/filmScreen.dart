@@ -2,8 +2,10 @@ import 'package:ecinema_desktop/models/film.dart';
 import 'package:ecinema_desktop/models/models.dart';
 import 'package:ecinema_desktop/providers/filmProvider.dart';
 import 'package:ecinema_desktop/screens/listaGlumacaScreen.dart';
+import 'package:ecinema_desktop/screens/listaZanrovaScreen.dart';
 import 'package:ecinema_desktop/widgets/film/addFilmGlumacModal.dart';
 import 'package:ecinema_desktop/widgets/film/addFilmModal.dart';
+import 'package:ecinema_desktop/widgets/film/addFilmZanrModal.dart';
 import 'package:ecinema_desktop/widgets/film/editFilmModal.dart';
 import 'package:ecinema_desktop/widgets/film_zarada.dart';
 import 'package:flutter/material.dart';
@@ -82,7 +84,7 @@ class _FilmScreenState extends State<FilmScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Brisanje '),
+          title: const Text('Brisanje'),
           content: const Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -111,7 +113,7 @@ class _FilmScreenState extends State<FilmScreen> {
                       const SnackBar(
                         backgroundColor: Colors.red,
                         content: Text(
-                            'Ne možete obrisati predstavu  jer postoji termin za nju!'),
+                            'Ne možete obrisati film jer postoji termin za njega!'),
                       ),
                     );
                   }
@@ -178,10 +180,16 @@ class _FilmScreenState extends State<FilmScreen> {
                   child: TextFormField(
                     controller: _searchController,
                     decoration: const InputDecoration(
-                      labelText: 'Predstava',
+                      labelText: 'Film',
                       hintText: 'Unesite naziv filma',
                     ),
                   ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    loadData();
+                  },
+                  child: const Text('Pretraži'),
                 ),
                 const SizedBox(width: 16.0),
                 ElevatedButton(
@@ -205,6 +213,8 @@ class _FilmScreenState extends State<FilmScreen> {
                   DataColumn(label: Text('Obriši')),
                   DataColumn(label: Text('Dodaj glumca')),
                   DataColumn(label: Text('Prikaz glumaca')),
+                  DataColumn(label: Text('Dodaj žanr')),
+                  DataColumn(label: Text('Prikaz žanrova')),
                   DataColumn(label: Text('Izvjestaj')),
                 ],
                 rows: _film!.isNotEmpty
@@ -265,6 +275,40 @@ class _FilmScreenState extends State<FilmScreen> {
                           ),
                           DataCell(
                             IconButton(
+                              icon: Icon(Icons.add_box_outlined,
+                                  color: Theme.of(context).primaryColor),
+                              onPressed: () {
+                                showDialog(
+                                  barrierDismissible: true,
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AddFilmZanrModal(
+                                      nazivFilma: film.naziv,
+                                      filmId: film.filmId,
+                                    );
+                                  },
+                                );
+                              },
+                            ),
+                          ),
+                          DataCell(
+                            IconButton(
+                              icon: Icon(Icons.format_list_bulleted,
+                                  color: Theme.of(context).primaryColor),
+                              onPressed: () {
+                                Navigator.pushNamed(
+                                  context,
+                                  ListaZanrovaScreen.routeName,
+                                  arguments: {
+                                    'filmId': film.filmId,
+                                    'naziv': film.naziv
+                                  },
+                                );
+                              },
+                            ),
+                          ),
+                          DataCell(
+                            IconButton(
                               icon: Icon(Icons.addchart,
                                   color: Theme.of(context).primaryColor),
                               onPressed: () {
@@ -272,7 +316,7 @@ class _FilmScreenState extends State<FilmScreen> {
                                   context: context,
                                   builder: (BuildContext context) {
                                     return AlertDialog(
-                                      title: const Text('Zarada po predstavi'),
+                                      title: const Text('Zarada po filmu'),
                                       content: FilmZarada(
                                         filmId: film.filmId,
                                       ),
@@ -289,8 +333,10 @@ class _FilmScreenState extends State<FilmScreen> {
                           DataCell(Text('')),
                           DataCell(Text('')),
                           DataCell(Text('')),
+                          DataCell(Text('')),
                           DataCell(
                               Center(child: Text('Nema rezultata pretrage'))),
+                          DataCell(Text('')),
                           DataCell(Text('')),
                           DataCell(Text('')),
                           DataCell(Text('')),

@@ -115,7 +115,7 @@ class _DvoranaScreenState extends State<DvoranaScreen> {
   }
 
   void handleAdd(dynamic request) async {
-    request["dvoranaId"] = widget.id;
+    request["cinemaId"] = widget.id;
     await _dvoranaProvider!.insert(request);
     if (context.mounted) {
       Navigator.pop(context);

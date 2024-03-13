@@ -218,7 +218,7 @@ class _AddTerminModalState extends State<AddTerminModal> {
                 'cijenaKarte': cijenaKarte,
                 'datumOdrzavanja': datumOdrzavanja.toIso8601String(),
                 'vrijemeOdrzavanja': satnicaOdrzavanja,
-                'predstavaId': _selectedFilm!.filmId
+                'filmId': _selectedFilm!.filmId
               };
 
               handleAdd(request);

@@ -36,7 +36,7 @@ class _EditGlumacModalState extends State<EditGlumacModal> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Text('Uredi drzavu'),
+      title: const Text('Uredi glumca'),
       content: Form(
         key: _formKey,
         child: Column(

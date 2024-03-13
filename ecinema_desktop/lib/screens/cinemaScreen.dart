@@ -270,7 +270,6 @@ class _CinemaScreenState extends State<CinemaScreen> {
                           DataCell(Text('')),
                           DataCell(Text('')),
                           DataCell(Text('')),
-                          DataCell(Text('')),
                         ])
                       ],
               ),

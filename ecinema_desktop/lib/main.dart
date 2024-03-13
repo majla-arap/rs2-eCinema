@@ -4,6 +4,7 @@ import 'package:ecinema_desktop/providers/cinemaProvider.dart';
 import 'package:ecinema_desktop/providers/dvoranaProvider.dart';
 import 'package:ecinema_desktop/providers/filmGlumacProvider.dart';
 import 'package:ecinema_desktop/providers/filmProvider.dart';
+import 'package:ecinema_desktop/providers/filmZanrProvider.dart';
 import 'package:ecinema_desktop/providers/glumciProvider.dart';
 import 'package:ecinema_desktop/providers/kartaProvider.dart';
 import 'package:ecinema_desktop/providers/kategorijaObavijestProvider.dart';
@@ -14,6 +15,7 @@ import 'package:ecinema_desktop/providers/zanrProvider.dart';
 import 'package:ecinema_desktop/screens/dvoranaScreen.dart';
 import 'package:ecinema_desktop/screens/karteScreen.dart';
 import 'package:ecinema_desktop/screens/listaGlumacaScreen.dart';
+import 'package:ecinema_desktop/screens/listaZanrovaScreen.dart';
 import 'package:ecinema_desktop/screens/loginScreen.dart';
 import 'package:ecinema_desktop/screens/terminiScreen.dart';
 import 'package:flutter/material.dart';
@@ -37,6 +39,7 @@ void main() {
         ChangeNotifierProvider(create: (_) => KartaProvider()),
         ChangeNotifierProvider(create: (_) => ZanrProvider()),
         ChangeNotifierProvider(create: (_) => FilmGlumacProvider()),
+        ChangeNotifierProvider(create: (_) => FilmZanrProvider()),
       ],
       child: const MyApp(),
     ),
@@ -94,6 +97,14 @@ class MyApp extends StatelessWidget {
           final args = ModalRoute.of(context)!.settings.arguments
               as Map<String, dynamic>;
           return ListaGlumacaScreen(
+            filmId: args['filmId'] as int,
+            naziv: args['naziv'] as String,
+          );
+        },
+        ListaZanrovaScreen.routeName: (context) {
+          final args = ModalRoute.of(context)!.settings.arguments
+              as Map<String, dynamic>;
+          return ListaZanrovaScreen(
             filmId: args['filmId'] as int,
             naziv: args['naziv'] as String,
           );

@@ -2,6 +2,7 @@ import 'package:ecinema_desktop/models/karta.dart';
 import 'package:ecinema_desktop/providers/kartaProvider.dart';
 import 'package:ecinema_desktop/providers/terminiProvider.dart';
 import 'package:ecinema_desktop/widgets/pregledKarata.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -117,7 +118,7 @@ class _KarteScreenState extends State<KarteScreen> {
     );
   }
 
-  /*void createReport() async {
+  void createReport() async {
     int aktivne = _karte.where((k) => k.aktivna).toList().length;
     int neaktivne = _karte.where((k) => !k.aktivna).toList().length;
     int total = aktivne + neaktivne;
@@ -177,7 +178,7 @@ class _KarteScreenState extends State<KarteScreen> {
                     ),
                   ),
                   const SizedBox(width: 16),
-                  Text('Kupljene karte: ${neaktivne.toString()}')
+                  Text('Kupljene karte ${neaktivne.toString()}')
                 ],
               )
             ],
@@ -185,7 +186,7 @@ class _KarteScreenState extends State<KarteScreen> {
         );
       },
     );
-  }*/
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -223,7 +224,7 @@ class _KarteScreenState extends State<KarteScreen> {
                 const SizedBox(width: 10),
                 ElevatedButton(
                   onPressed: () {
-                    //createReport();
+                    createReport();
                   },
                   child: const Text('Izvještaj'),
                 ),

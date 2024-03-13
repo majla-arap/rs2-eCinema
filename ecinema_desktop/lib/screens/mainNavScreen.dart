@@ -3,7 +3,9 @@ import 'package:ecinema_desktop/screens/filmScreen.dart';
 import 'package:ecinema_desktop/screens/glumciScreen.dart';
 import 'package:ecinema_desktop/screens/kategorijaObavijestScreen.dart';
 import 'package:ecinema_desktop/screens/obavijestScreen.dart';
+import 'package:ecinema_desktop/screens/profilScreen.dart';
 import 'package:ecinema_desktop/screens/zanrScreen.dart';
+import 'package:ecinema_desktop/screens/zarada_screen.dart';
 import 'package:flutter/material.dart';
 
 class NavigationItem {
@@ -34,10 +36,8 @@ class _MainNavScreenState extends State<MainNavScreen> {
     NavigationItem(label: 'Obavijesti', widget: const ObavijestiScreen()),
     NavigationItem(
         label: 'Vrste obavijesti', widget: const KategorijeObavijestiScreen()),
-    NavigationItem(
-        label: 'Zarada', widget: const Text('Zarada', style: optionStyle)),
-    NavigationItem(
-        label: 'Profil', widget: const Text('Profil', style: optionStyle)),
+    NavigationItem(label: 'Zarada', widget: const ZaradaScreen()),
+    NavigationItem(label: 'Profil', widget: const ProfilScreen()),
   ];
 
   void _onItemTapped(int index) {

@@ -232,7 +232,7 @@ class _EditPozoristeModalState extends State<EditTerminModal> {
                 'cijenaKarte': cijenaKarteController.text,
                 'datumOdrzavanja': datumOdrzavanja.toIso8601String(),
                 'vrijemeOdrzavanja': vrijemeOdrzavanjaController.text,
-                'FilmId': _selectedFilm!.filmId,
+                'filmId': _selectedFilm!.filmId,
                 'dvoranaId': widget.termin.dvoranaId
               };
 

@@ -21,7 +21,7 @@ class TerminiScreen extends StatefulWidget {
 class _TerminiScreenState extends State<TerminiScreen> {
   TerminProvider? _terminProvider;
   FilmProvider? _filmProvider;
-  List<Termin>? _kina;
+  List<Termin>? _termini;
   DateTime? _selectedDate;
   bool filterPremijera = false;
   bool filterPredPrem = false;
@@ -89,7 +89,7 @@ class _TerminiScreenState extends State<TerminiScreen> {
     };
     var data = await _terminProvider!.get(request);
     setState(() {
-      _kina = data;
+      _termini = data;
     });
   }
 
@@ -190,7 +190,7 @@ class _TerminiScreenState extends State<TerminiScreen> {
 
   @override
   Widget build(BuildContext context) {
-    if (_kina == null) {
+    if (_termini == null) {
       return const Center(child: CircularProgressIndicator());
     }
     return Scaffold(
@@ -309,8 +309,8 @@ class _TerminiScreenState extends State<TerminiScreen> {
                   DataColumn(label: Text('Uredi')),
                   DataColumn(label: Text('Obriši')),
                 ],
-                rows: _kina!.isNotEmpty
-                    ? _kina!.map((termin) {
+                rows: _termini!.isNotEmpty
+                    ? _termini!.map((termin) {
                         return DataRow(cells: [
                           DataCell(
                             Tooltip(
