@@ -30,9 +30,9 @@ namespace eCinema.Services
         public override Model.Zanr Delete(int id)
         {
             var entity = _context.Zanrs.Find(id);
-            var film = _context.Films.Where(e => e.FilmId == id).ToList();
+            var filmZanr = _context.FilmZanrs.Where(e => e.ZanrId == id).ToList();
             
-            if (film != null && film.Any())
+            if (filmZanr != null && filmZanr.Any())
             {
                 return null;
             }

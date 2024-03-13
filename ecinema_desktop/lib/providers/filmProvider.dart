@@ -16,7 +16,7 @@ class FilmProvider extends BaseProvider<Film> {
   }
 
   Future<Zarada> getZarada(int id) async {
-    var url = "${_baseUrl}Predstava/zaradaReport/$id";
+    var url = "${_baseUrl}Film/zaradaReport/$id";
     var uri = Uri.parse(url);
     Map<String, String> headers = createHeaders();
 

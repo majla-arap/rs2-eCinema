@@ -51,8 +51,8 @@ namespace eCinema.Services
         }
         public override Model.Termin Insert(TerminInsertRequest request)
         {
-            var predstava = _context.Films.First(x => x.FilmId == request.FilmId);
-            if (predstava == null)
+            var film = _context.Films.First(x => x.FilmId == request.FilmId);
+            if (film == null)
                 throw new Exception("Film nije pronađena");
             var sala = _context.Dvoranas.First(x => x.DvoranaId == request.DvoranaId); 
             if (sala == null)

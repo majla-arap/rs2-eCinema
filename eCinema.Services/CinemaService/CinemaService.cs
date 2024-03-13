@@ -31,8 +31,7 @@ namespace eCinema.Services
 
             if (!string.IsNullOrWhiteSpace(search?.Text))
                 filteredQuery = filteredQuery.Where(x => x.Naziv.ToLower().Contains(search.Text.ToLower()));
-            if (search.Text != null)
-                filteredQuery = filteredQuery.Where(x => x.Naziv == search.Text);
+
             return filteredQuery;
         }
        

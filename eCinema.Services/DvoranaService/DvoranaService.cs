@@ -18,7 +18,11 @@ namespace eCinema.Services
         {
 
         }
-
+        public override IQueryable<eCinema.Services.Database.Dvorana> AddInclude(IQueryable<eCinema.Services.Database.Dvorana> query, DvoranaSearchObject search = null)
+        {
+            query = query.Include(x => x.Cinema);
+            return base.AddInclude(query, search);
+        }
 
         public override IQueryable<eCinema.Services.Database.Dvorana> AddFilter(IQueryable<eCinema.Services.Database.Dvorana> query, DvoranaSearchObject search = null)
         {
@@ -33,15 +37,15 @@ namespace eCinema.Services
 
         public override Model.Dvorana Insert(DvoranaInsertRequest request)
         {
-            Database.Dvorana Dvorana = new Database.Dvorana();
-            Dvorana.Naziv = request.Naziv;
-            Dvorana.BrRedova = request.BrRedova;
-            Dvorana.BrSjedistaPoRedu = request.BrSjedistaPoRedu;
-            Dvorana.CinemaId = request.CinemaId;
-            Dvorana.BrSjedista = request.BrRedova * request.BrSjedistaPoRedu;
-            _context.Add(Dvorana);
+            Database.Dvorana dvorana = new Database.Dvorana();
+            dvorana.Naziv = request.Naziv;
+            dvorana.BrRedova = request.BrRedova;
+            dvorana.BrSjedistaPoRedu = request.BrSjedistaPoRedu;
+            dvorana.CinemaId = request.CinemaId;
+            dvorana.BrSjedista = request.BrRedova * request.BrSjedistaPoRedu;
+            _context.Add(dvorana);
             _context.SaveChanges();
-            return _mapper.Map<Model.Dvorana>(Dvorana);
+            return _mapper.Map<Model.Dvorana>(dvorana);
         }
 
         public override Model.Dvorana Delete(int id)
