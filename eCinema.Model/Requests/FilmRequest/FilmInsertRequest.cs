@@ -29,8 +29,5 @@ namespace eCinema.Model.Requests
         
         [Required]
         public DateTime PocetakPrikazivanja { get; set; }
-
-        [Required]
-        public int ZanrId { get; set; }
     }
 }

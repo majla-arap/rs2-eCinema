@@ -217,21 +217,50 @@ class _KarteScreenState extends State<KarteScreen> {
                 const SizedBox(width: 10),
                 ElevatedButton(
                   onPressed: () {
-                    openDeleteModal();
+                    if (_karte.isEmpty) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          backgroundColor: Colors.red,
+                          content: Text('Ne možete obrisati karte!'),
+                        ),
+                      );
+                    } else {
+                      openDeleteModal();
+                    }
                   },
                   child: const Text('Obriši'),
                 ),
                 const SizedBox(width: 10),
                 ElevatedButton(
                   onPressed: () {
-                    createReport();
+                    if (_karte.isEmpty) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          backgroundColor: Colors.red,
+                          content: Text(
+                              'Ne možete pregledati izvještaj jer nema karta!'),
+                        ),
+                      );
+                    } else {
+                      createReport();
+                    }
                   },
                   child: const Text('Izvještaj'),
                 ),
                 const SizedBox(width: 10),
                 ElevatedButton(
                   onPressed: () {
-                    prikazSjedista();
+                    if (_karte.isEmpty) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          backgroundColor: Colors.red,
+                          content: Text(
+                              'Ne možete pregledati sjedišta jer nema karta!'),
+                        ),
+                      );
+                    } else {
+                      prikazSjedista();
+                    }
                   },
                   child: const Text('Prikaz sjedišta'),
                 ),

@@ -35,6 +35,7 @@ namespace eCinema.Services
             var entity = _context.Films.Find(id);
             var termini = _context.Termins.Where(e => e.FilmId == id).ToList();
             var filmGlumac = _context.FilmGlumacs.Where(e => e.FilmId == id).ToList();
+            var filmZanr = _context.FilmZanrs.Where(e => e.FilmId == id).ToList();
 
             if (termini != null && termini.Any())
             {
@@ -44,12 +45,21 @@ namespace eCinema.Services
             {
                 return null;
             }
-            else if (filmGlumac != null && filmGlumac.Any())
+            else if ((filmGlumac != null && filmGlumac.Any()) || (filmZanr != null && filmZanr.Any()))
             {
-
-                foreach (var uloga in filmGlumac)
+                if (filmGlumac != null)
                 {
-                    _context.FilmGlumacs.Remove(uloga);
+                    foreach (var uloga in filmGlumac)
+                    {
+                        _context.FilmGlumacs.Remove(uloga);
+                    }
+                }
+                if (filmZanr != null)
+                {
+                    foreach (var zanr in filmZanr)
+                    {
+                        _context.FilmZanrs.Remove(zanr);
+                    }
                 }
                 _context.Films.Remove(entity);
             }
